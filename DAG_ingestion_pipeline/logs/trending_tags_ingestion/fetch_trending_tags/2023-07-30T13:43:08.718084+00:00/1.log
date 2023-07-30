@@ -1,0 +1,77 @@
+[2023-07-30 13:43:17,681] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: trending_tags_ingestion.fetch_trending_tags 2023-07-30T13:43:08.718084+00:00 [queued]>
+[2023-07-30 13:43:17,716] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: trending_tags_ingestion.fetch_trending_tags 2023-07-30T13:43:08.718084+00:00 [queued]>
+[2023-07-30 13:43:17,717] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-30 13:43:17,718] {taskinstance.py:1088} INFO - Starting attempt 1 of 2
+[2023-07-30 13:43:17,718] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-30 13:43:17,761] {taskinstance.py:1107} INFO - Executing <Task(PythonOperator): fetch_trending_tags> on 2023-07-30T13:43:08.718084+00:00
+[2023-07-30 13:43:17,766] {standard_task_runner.py:52} INFO - Started process 11991 to run task
+[2023-07-30 13:43:17,779] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'trending_tags_ingestion', 'fetch_trending_tags', '2023-07-30T13:43:08.718084+00:00', '--job-id', '14425', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_dag/stackapi.py', '--cfg-path', '/tmp/tmporwtorl6', '--error-file', '/tmp/tmpail6lc2t']
+[2023-07-30 13:43:17,781] {standard_task_runner.py:77} INFO - Job 14425: Subtask fetch_trending_tags
+[2023-07-30 13:43:17,875] {logging_mixin.py:104} INFO - Running <TaskInstance: trending_tags_ingestion.fetch_trending_tags 2023-07-30T13:43:08.718084+00:00 [running]> on host fd6918d9d7f3
+[2023-07-30 13:43:18,003] {taskinstance.py:1300} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=trending_tags_ingestion
+AIRFLOW_CTX_TASK_ID=fetch_trending_tags
+AIRFLOW_CTX_EXECUTION_DATE=2023-07-30T13:43:08.718084+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-07-30T13:43:08.718084+00:00
+[2023-07-30 13:48:32,477] {taskinstance.py:1501} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 670, in urlopen
+    httplib_response = self._make_request(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 381, in _make_request
+    self._validate_conn(conn)
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 978, in _validate_conn
+    conn.connect()
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 362, in connect
+    self.sock = ssl_wrap_socket(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/ssl_.py", line 386, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/local/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/usr/local/lib/python3.8/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/usr/local/lib/python3.8/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLEOFError: EOF occurred in violation of protocol (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/adapters.py", line 439, in send
+    resp = conn.urlopen(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 726, in urlopen
+    retries = retries.increment(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/retry.py", line 446, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.stackexchange.com', port=443): Max retries exceeded with url: /2.3/tags?order=desc&sort=popular&site=stackoverflow (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1157, in _run_raw_task
+    self._prepare_and_execute_task_with_callbacks(context, task)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1331, in _prepare_and_execute_task_with_callbacks
+    result = self._execute_task(context, task_copy)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1361, in _execute_task
+    result = task_copy.execute(context=context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 150, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 161, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/data_ingestion_dag/stackapi.py", line 36, in fetch_trending_tags
+    response = requests.get(base_url + endpoint, params=params)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/sessions.py", line 542, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/sessions.py", line 655, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/adapters.py", line 514, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='api.stackexchange.com', port=443): Max retries exceeded with url: /2.3/tags?order=desc&sort=popular&site=stackoverflow (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1131)')))
+[2023-07-30 13:48:32,528] {taskinstance.py:1544} INFO - Marking task as UP_FOR_RETRY. dag_id=trending_tags_ingestion, task_id=fetch_trending_tags, execution_date=20230730T134308, start_date=20230730T134317, end_date=20230730T134832
+[2023-07-30 13:48:32,648] {local_task_job.py:151} INFO - Task exited with return code 1

@@ -1,0 +1,50 @@
+[2023-07-13 11:59:24,225] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: booking_ingestion.transform_data 2023-07-13T10:58:52.195773+00:00 [queued]>
+[2023-07-13 11:59:24,266] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: booking_ingestion.transform_data 2023-07-13T10:58:52.195773+00:00 [queued]>
+[2023-07-13 11:59:24,267] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-13 11:59:24,268] {taskinstance.py:1088} INFO - Starting attempt 1 of 1
+[2023-07-13 11:59:24,268] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-13 11:59:24,356] {taskinstance.py:1107} INFO - Executing <Task(PythonOperator): transform_data> on 2023-07-13T10:58:52.195773+00:00
+[2023-07-13 11:59:24,370] {standard_task_runner.py:52} INFO - Started process 123 to run task
+[2023-07-13 11:59:24,401] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'booking_ingestion', 'transform_data', '2023-07-13T10:58:52.195773+00:00', '--job-id', '11248', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_dag/main.py', '--cfg-path', '/tmp/tmpze2jq8df', '--error-file', '/tmp/tmpzq0g83i3']
+[2023-07-13 11:59:24,406] {standard_task_runner.py:77} INFO - Job 11248: Subtask transform_data
+[2023-07-13 11:59:24,594] {logging_mixin.py:104} INFO - Running <TaskInstance: booking_ingestion.transform_data 2023-07-13T10:58:52.195773+00:00 [running]> on host d9c3ec86c3ab
+[2023-07-13 11:59:24,823] {taskinstance.py:1300} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=booking_ingestion
+AIRFLOW_CTX_TASK_ID=transform_data
+AIRFLOW_CTX_EXECUTION_DATE=2023-07-13T10:58:52.195773+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-07-13T10:58:52.195773+00:00
+[2023-07-13 11:59:24,827] {logging_mixin.py:104} INFO - Ingesting data for date: 2023-07-13 10
+[2023-07-13 11:59:24,879] {taskinstance.py:1501} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1157, in _run_raw_task
+    self._prepare_and_execute_task_with_callbacks(context, task)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1331, in _prepare_and_execute_task_with_callbacks
+    result = self._execute_task(context, task_copy)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1361, in _execute_task
+    result = task_copy.execute(context=context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 150, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 161, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/data_ingestion_dag/main.py", line 39, in transform_data
+    booking = pd.read_csv(f"{dag_path}/raw_data/{file_date_path}/booking.csv", low_memory=False)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers.py", line 610, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers.py", line 462, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers.py", line 819, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers.py", line 1050, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers.py", line 1867, in __init__
+    self._open_handles(src, kwds)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers.py", line 1362, in _open_handles
+    self.handles = get_handle(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/common.py", line 647, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/airflow/raw_data/2023-07-13/10/booking.csv'
+[2023-07-13 11:59:24,903] {taskinstance.py:1544} INFO - Marking task as FAILED. dag_id=booking_ingestion, task_id=transform_data, execution_date=20230713T105852, start_date=20230713T115924, end_date=20230713T115924
+[2023-07-13 11:59:25,048] {local_task_job.py:151} INFO - Task exited with return code 1

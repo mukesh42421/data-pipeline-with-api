@@ -1,0 +1,38 @@
+[2023-07-12 11:54:22,587] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: my_first_dag.create_user 2023-06-19T02:01:35+00:00 [queued]>
+[2023-07-12 11:54:22,699] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: my_first_dag.create_user 2023-06-19T02:01:35+00:00 [queued]>
+[2023-07-12 11:54:22,700] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-12 11:54:22,701] {taskinstance.py:1088} INFO - Starting attempt 1 of 1
+[2023-07-12 11:54:22,702] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-12 11:54:22,755] {taskinstance.py:1107} INFO - Executing <Task(BashOperator): create_user> on 2023-06-19T02:01:35+00:00
+[2023-07-12 11:54:22,761] {standard_task_runner.py:52} INFO - Started process 67074 to run task
+[2023-07-12 11:54:22,775] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'my_first_dag', 'create_user', '2023-06-19T02:01:35+00:00', '--job-id', '8878', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_dag/test.py', '--cfg-path', '/tmp/tmpx0lu7xr9', '--error-file', '/tmp/tmpe3v1_r4r']
+[2023-07-12 11:54:22,777] {standard_task_runner.py:77} INFO - Job 8878: Subtask create_user
+[2023-07-12 11:54:22,887] {logging_mixin.py:104} INFO - Running <TaskInstance: my_first_dag.create_user 2023-06-19T02:01:35+00:00 [running]> on host d9c3ec86c3ab
+[2023-07-12 11:54:23,218] {taskinstance.py:1300} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=my_first_dag
+AIRFLOW_CTX_TASK_ID=create_user
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-19T02:01:35+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-06-19T02:01:35+00:00
+[2023-07-12 11:54:23,221] {subprocess.py:52} INFO - Tmp dir root location: 
+ /tmp
+[2023-07-12 11:54:23,222] {subprocess.py:63} INFO - Running command: ['bash', '-c', '\nid -u test_user;\nif [$? -eq o];\n    then echo "User exists"\nelse sudo useradd -r test_user;\n    echo "User created";\nfi']
+[2023-07-12 11:54:23,234] {subprocess.py:75} INFO - Output:
+[2023-07-12 11:54:23,309] {subprocess.py:79} INFO - id: ‘test_user’: no such user
+[2023-07-12 11:54:23,316] {subprocess.py:79} INFO - bash: line 2: [1: command not found
+[2023-07-12 11:54:23,383] {subprocess.py:79} INFO - 
+[2023-07-12 11:54:23,384] {subprocess.py:79} INFO - We trust you have received the usual lecture from the local System
+[2023-07-12 11:54:23,385] {subprocess.py:79} INFO - Administrator. It usually boils down to these three things:
+[2023-07-12 11:54:23,385] {subprocess.py:79} INFO - 
+[2023-07-12 11:54:23,386] {subprocess.py:79} INFO -     #1) Respect the privacy of others.
+[2023-07-12 11:54:23,387] {subprocess.py:79} INFO -     #2) Think before you type.
+[2023-07-12 11:54:23,387] {subprocess.py:79} INFO -     #3) With great power comes great responsibility.
+[2023-07-12 11:54:23,388] {subprocess.py:79} INFO - 
+[2023-07-12 11:54:23,389] {subprocess.py:79} INFO - sudo: no tty present and no askpass program specified
+[2023-07-12 11:54:23,395] {subprocess.py:79} INFO - User created
+[2023-07-12 11:54:23,398] {subprocess.py:83} INFO - Command exited with return code 0
+[2023-07-12 11:54:23,457] {taskinstance.py:1204} INFO - Marking task as SUCCESS. dag_id=my_first_dag, task_id=create_user, execution_date=20230619T020135, start_date=20230712T115422, end_date=20230712T115423
+[2023-07-12 11:54:23,542] {taskinstance.py:1265} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-07-12 11:54:23,591] {local_task_job.py:151} INFO - Task exited with return code 0

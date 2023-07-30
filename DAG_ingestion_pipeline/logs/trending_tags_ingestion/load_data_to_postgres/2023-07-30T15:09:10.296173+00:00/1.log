@@ -1,0 +1,54 @@
+[2023-07-30 15:09:19,702] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: trending_tags_ingestion.load_data_to_postgres 2023-07-30T15:09:10.296173+00:00 [queued]>
+[2023-07-30 15:09:19,746] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: trending_tags_ingestion.load_data_to_postgres 2023-07-30T15:09:10.296173+00:00 [queued]>
+[2023-07-30 15:09:19,748] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-30 15:09:19,749] {taskinstance.py:1088} INFO - Starting attempt 1 of 2
+[2023-07-30 15:09:19,749] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-30 15:09:19,803] {taskinstance.py:1107} INFO - Executing <Task(PythonOperator): load_data_to_postgres> on 2023-07-30T15:09:10.296173+00:00
+[2023-07-30 15:09:19,809] {standard_task_runner.py:52} INFO - Started process 307 to run task
+[2023-07-30 15:09:19,825] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'trending_tags_ingestion', 'load_data_to_postgres', '2023-07-30T15:09:10.296173+00:00', '--job-id', '14437', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_dag/stackapi.py', '--cfg-path', '/tmp/tmpn01s_du0', '--error-file', '/tmp/tmpsvjev66e']
+[2023-07-30 15:09:19,827] {standard_task_runner.py:77} INFO - Job 14437: Subtask load_data_to_postgres
+[2023-07-30 15:09:19,923] {logging_mixin.py:104} INFO - Running <TaskInstance: trending_tags_ingestion.load_data_to_postgres 2023-07-30T15:09:10.296173+00:00 [running]> on host fd6918d9d7f3
+[2023-07-30 15:09:20,052] {taskinstance.py:1300} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=trending_tags_ingestion
+AIRFLOW_CTX_TASK_ID=load_data_to_postgres
+AIRFLOW_CTX_EXECUTION_DATE=2023-07-30T15:09:10.296173+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-07-30T15:09:10.296173+00:00
+[2023-07-30 15:09:20,145] {logging_mixin.py:104} INFO - fetchinG Data for  2023-07-30T15:09:19.291212
+[2023-07-30 15:09:21,754] {logging_mixin.py:104} INFO - Fetching Done
+[2023-07-30 15:09:21,766] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('javascript', 2506283, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,768] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('python', 2154186, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,770] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('java', 1903580, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,771] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('c#', 1598485, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,773] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('php', 1460797, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,775] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('android', 1408002, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,776] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('html', 1178335, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,777] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('jquery', 1034277, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,779] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('c++', 797408, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,780] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('css', 796000, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,781] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('ios', 682454, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,783] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('sql', 663935, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,784] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('mysql', 660957, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,785] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('r', 494614, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,786] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('node.js', 465643, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,787] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('reactjs', 462653, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,788] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('arrays', 414259, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,789] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('c', 398274, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,790] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('asp.net', 373515, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,791] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('json', 357406, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,791] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('python-3.x', 340216, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,792] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('ruby-on-rails', 337162, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,793] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('.net', 333059, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,794] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('sql-server', 331349, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,795] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('swift', 329111, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,796] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('django', 308313, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,797] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('angular', 298183, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,797] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('objective-c', 292489, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,798] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('pandas', 281869, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,799] {logging_mixin.py:104} INFO - executed ('INSERT INTO trending_tags (tag_name, tag_count, created_at) VALUES (%s, %s, %s)', ('excel', 280970, '2023-07-30T15:09:20.146859'))
+[2023-07-30 15:09:21,803] {python.py:151} INFO - Done. Returned value was: None
+[2023-07-30 15:09:21,823] {taskinstance.py:1204} INFO - Marking task as SUCCESS. dag_id=trending_tags_ingestion, task_id=load_data_to_postgres, execution_date=20230730T150910, start_date=20230730T150919, end_date=20230730T150921
+[2023-07-30 15:09:21,897] {taskinstance.py:1265} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-07-30 15:09:21,911] {local_task_job.py:151} INFO - Task exited with return code 0
